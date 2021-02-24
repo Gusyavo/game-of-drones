@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap');
+@import url(//db.onlinewebfonts.com/c/07bc241768c969f6b6a27a7bf0dfb490?family=TT+Norms+Regular);
+
+body {
+  font-family: TT Norms Regular;
+  color: white;
+  background-color: black;
+}
+
+main label {
+  margin-right: 10px;
+}
+
+main h5 {
+  margin: 0;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-header {
+  min-height: 20vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  -webkit-text-stroke: 2px transparent; 
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+
+
+  h1 {
+
+    color: transparent;
+  }
+}
+
+.names-header {
+  display: flex;
+  justify-content: space-around;
+}
+
+.names-header div{
+  padding: 50px 80px;
+  font-size: 20px;
+}
+
+table {
+  margin: auto;
+}
