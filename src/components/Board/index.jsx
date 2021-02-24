@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react'
+import Player from './Player'
+import ScoreTable from './ScoreTable'
 
 function Board({ players, setStage, setPlayers }) {
 
@@ -16,14 +18,13 @@ function Board({ players, setStage, setPlayers }) {
     }
   }, [oneScore, twoScore])
 
-  const onChange = (event) => {
-    const { value } = event.target
+  const onClick = (move) => {
     if (turn === 0) {
-      setFirstMove(value)
+      setFirstMove(move)
       setTurn(1)
     }
     else {
-      const secondMove = value
+      const secondMove = move
       setTurn(0)
       roundWinnerDecider(firstMove, secondMove)
     }
@@ -50,64 +51,34 @@ function Board({ players, setStage, setPlayers }) {
       if (second === 'rock') setWinner(1)
       else setWinner(0)
     }
-  }
-
-  const scoreTable = winnersList.length > 0 ? (
-    <table>
-      <thead>
-        <tr>
-          <th>Round</th>
-          <th>Score</th>
-        </tr>
-      </thead>
-      <tbody>
-        {winnersList.map((winner, i) => (
-          <tr key={i}>
-            <td>{i + 1}</td>
-            <td>{winner}</td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
-  ) : (
-      null
-    )
+  }  
 
   return (
     <div>
       <div className="names-header">
-        <div>
-          <span>Player One</span>
-          <br />
-          <span>{one}</span>
-          <br />
-          <span>Score: {oneScore}</span>
-        </div>
+        <Player
+          name={one}
+          number={'One'}
+          score={oneScore}
+          onClick={onClick} 
+          hidden={turn === 0 ? false : true}
+        />
         <div>
           <span>Round {winnersList.length + 1}</span>
-          <br/>
-          <br/>
+          <br />
+          <br />
           <span>Player {turn + 1} {players[turn]}</span>
         </div>
-        <div>
-          <span>Player Two</span>
-          <br />
-          <span>{two}</span>
-          <br />
-          <span>Score: {twoScore}</span>
-        </div>
-      </div>
-      <div>
-        <span>Select amove: </span>
-        <select value="" onChange={onChange} >
-          <option value="" hidden></option>
-          <option value="rock">Rock</option>
-          <option value="paper">Paper</option>
-          <option value="scissors">Scissors</option>
-        </select>
+        <Player
+          name={two}
+          number={'Two'}
+          score={twoScore}
+          onClick={onClick} 
+          hidden={turn === 1 ? false : true}
+        />
       </div>
       <br /><br />
-      {scoreTable}
+      <ScoreTable winnersList={winnersList} />
     </div>
   )
 }

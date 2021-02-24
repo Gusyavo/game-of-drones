@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import './App.scss'
-import Start from './Start'
-import Board from './Board'
-import End from './End'
+import Start from './components/Start'
+import Board from './components/Board/index'
+import End from './components/End'
 
 function App() {
   const [players, setPlayers] = useState(['lolo', 'mimi'])
