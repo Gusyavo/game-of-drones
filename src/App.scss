@@ -1,18 +1,29 @@
-@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap");
 @import url(//db.onlinewebfonts.com/c/07bc241768c969f6b6a27a7bf0dfb490?family=TT+Norms+Regular);
 
 body {
   font-family: TT Norms Regular;
   color: white;
   background-color: black;
+  height: 100vh;
+  div {
+    height: 100%;
+  }
+  main {
+    height: 80vh;
+  }
 }
 
-main label {
-  margin-right: 10px;
-}
+main {
+  label {
+    display: inline-block;
+    margin-right: 10px;
+    width: 80px;
+  }
 
-main h5 {
-  margin: 0;
+  h5 {
+    margin: 0;
+  }
 }
 
 .App {
@@ -20,33 +31,46 @@ main h5 {
 }
 
 .App-header {
-  min-height: 20vh;
+  min-height: 10vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  -webkit-text-stroke: 2px transparent; 
-  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
-
-
-  h1 {
-
-    color: transparent;
-  }
 }
 
 .names-header {
   display: flex;
-  justify-content: space-around;
-}
-
-.names-header div{
-  padding: 50px 80px;
-  font-size: 20px;
-  width: 180px;
+  justify-content: space-around;  
+  align-items: center;
+  flex-wrap: wrap;
+  div {
+    font-size: 20px;
+    min-width: 210px;
+    height: 210px;
+    // background-color: tomato;
+  }
+  span {
+    display: block;
+    margin: 12px 0;
+  }
+  button {
+    display: inline-block;
+    width: 70px;
+    height: 70px;
+  }
 }
 
 table {
   margin: auto;
+}
+
+.end {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  div {
+    width: 3000px;
+    height: 190px;
+    margin-bottom: 60px;
+  }
 }

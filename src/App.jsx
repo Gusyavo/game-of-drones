@@ -5,8 +5,8 @@ import Board from './components/Board/index'
 import End from './components/End'
 
 function App() {
-  const [players, setPlayers] = useState(['lolo', 'mimi'])
-  const [stage, setStage] = useState('started')
+  const [players, setPlayers] = useState(['', ''])
+  const [stage, setStage] = useState('finished')
   let body
 
   const restartGame = () => {

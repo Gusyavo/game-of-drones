@@ -6,8 +6,6 @@ function ScoreTable({ winnersList }) {
 
   return (
     <>
-      {
-        show ? (
           <table>
             <thead>
               <tr>
@@ -24,8 +22,6 @@ function ScoreTable({ winnersList }) {
               ))}
             </tbody>
           </table>
-        ) : (null)
-      }
     </>
   )
 }

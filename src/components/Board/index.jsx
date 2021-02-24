@@ -18,7 +18,7 @@ function Board({ players, setStage, setPlayers }) {
     }
   }, [oneScore, twoScore])
 
-  const onClick = (move) => {
+  const chooseMove = (move) => {
     if (turn === 0) {
       setFirstMove(move)
       setTurn(1)
@@ -51,34 +51,29 @@ function Board({ players, setStage, setPlayers }) {
       if (second === 'rock') setWinner(1)
       else setWinner(0)
     }
-  }  
+  }
 
   return (
-    <div>
-      <div className="names-header">
-        <Player
-          name={one}
-          number={'One'}
-          score={oneScore}
-          onClick={onClick} 
-          hidden={turn === 0 ? false : true}
-        />
-        <div>
-          <span>Round {winnersList.length + 1}</span>
-          <br />
-          <br />
-          <span>Player {turn + 1} {players[turn]}</span>
-        </div>
-        <Player
-          name={two}
-          number={'Two'}
-          score={twoScore}
-          onClick={onClick} 
-          hidden={turn === 1 ? false : true}
-        />
+    <div className="names-header">
+      <Player
+        name={one}
+        number={'One'}
+        score={oneScore}
+        chooseMove={chooseMove}
+        hidden={turn === 0 ? false : true}
+      />
+      <div>
+        <span>Round {winnersList.length + 1}</span>
+        <span>Player {turn + 1} {players[turn]}</span>
+        <ScoreTable winnersList={winnersList} />
       </div>
-      <br /><br />
-      <ScoreTable winnersList={winnersList} />
+      <Player
+        name={two}
+        number={'Two'}
+        score={twoScore}
+        chooseMove={chooseMove}
+        hidden={turn === 1 ? false : true}
+      />
     </div>
   )
 }

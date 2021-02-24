@@ -1,20 +1,17 @@
 import React from 'react'
 
-function Player({ name, number, score, hidden, onClick }) {
+function Player({ name, number, score, hidden, chooseMove }) {
 
   return (
-    <div >
+    <div>
       <span>Player {number}</span>
-      <br />
       <span>{name}</span>
-      <br />
       <span>Score: {score}</span>
-      <br/>
       {hidden ? null : (
         <>
-          <button onClick={() => onClick('rock')}>Rock</button>
-          <button onClick={() => onClick('paper')}>Paper</button>
-          <button onClick={() => onClick('scissors')}>Scissors</button>
+          <button onClick={() => chooseMove('rock')}>Rock</button>
+          <button onClick={() => chooseMove('paper')}>Paper</button>
+          <button onClick={() => chooseMove('scissors')}>Scissors</button>
         </>
       )}
     </div>
